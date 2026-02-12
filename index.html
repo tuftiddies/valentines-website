@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="hearts-background">
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
+        
+        <main class="content">
+            <h1 class="title">happy v-day bby!</h1>
+            <p class="subtitle">ty 4 making me giggle & smile</p>
+
+            <button id="openDialog" class="valentine-button">
+                click here pookie bear
+            </button>
+        </main>
+    </div>
+
+    <!-- Dialog Box -->
+    <dialog id="valentineDialog" class="valentine-dialog">
+        <div class="dialog-content">
+            <button id="closeDialogX" class="close-x-button">X</button>
+            <h2>i love u</h2>
+            <p>b my bf?</p>
+            <div class="button-group">
+                <button id="optionYes" class="option-button yes-button">oki </button>
+                <button id="optionNo" class="option-button no-button">no ty</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Say Sike Dialog Box -->
+    <dialog id="saysikeDialog" class="valentine-dialog">
+        <div class="dialog-content">
+            <button id="closeSaysikeX" class="close-x-button">X</button>
+            <h2>say sike rn :(</h2>
+            <button id="tryAgainButton" class="option-button try-again-button">try again</button>
+        </div>
+    </dialog>
+
+    <!-- Congrats Dialog Box -->
+    <dialog id="congratsDialog" class="valentine-dialog">
+        <div class="dialog-content">
+            <button id="closeCongratsX" class="close-x-button">X</button>
+            <h2>congrats u have a gf now &lt;3</h2>
+        </div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>

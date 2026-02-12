@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+    background: #ffb6d9;
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.1) 4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hearts-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    clip-path: inset(0);
+}
+
+.heart {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #ff1493;
+    transform: rotate(45deg);
+    animation: float 6s infinite linear;
+    opacity: 0;
+    bottom: -100px;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #ff1493;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -25px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: -25px;
+}
+
+.heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+.heart:nth-child(2) { left: 30%; animation-delay: 1s; }
+.heart:nth-child(3) { left: 50%; animation-delay: 2s; }
+.heart:nth-child(4) { left: 70%; animation-delay: 3s; }
+.heart:nth-child(5) { left: 85%; animation-delay: 4s; }
+.heart:nth-child(6) { left: 20%; animation-delay: 5s; }
+
+@keyframes float {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        bottom: calc(100vh + 100px);
+        opacity: 0;
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    background: #ffffff;
+    padding: 60px 40px;
+    border: 8px solid #ff69b4;
+    box-shadow: 12px 12px 0px #ff1493;
+    max-width: 500px;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title {
+    font-size: 3rem;
+    color: #ff69b4;
+    margin-bottom: 20px;
+    text-shadow: 4px 4px 0px #ff1493;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.valentine-button {
+    background: #ff69b4;
+    color: white;
+    border: 4px solid #ff1493;
+    padding: 18px 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    box-shadow: 6px 6px 0px #ff1493;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.valentine-button:hover {
+    background: #ffb6d9;
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0px #ff1493;
+}
+
+.valentine-button:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px #ff1493;
+}
+
+/* Dialog Styles */
+.valentine-dialog {
+    border: 8px solid #ff69b4;
+    padding: 0;
+    max-width: 500px;
+    box-shadow: 16px 16px 0px #ff1493;
+    background: transparent;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.valentine-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.dialog-content {
+    background: #ffb6c1;
+    padding: 50px 40px;
+    text-align: center;
+    border: 4px solid #ff69b4;
+    position: relative;
+}
+
+.dialog-content h2 {
+    color: #ff69b4;
+    font-size: 2.5rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 0px #ffb6d9;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.dialog-content p {
+    color: #333;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.option-button {
+    color: white;
+    border: 4px solid;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    box-shadow: 6px 6px 0px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.yes-button {
+    background: #00ff00;
+    border-color: #00cc00;
+    box-shadow: 6px 6px 0px #00cc00;
+    color: #000;
+}
+
+.yes-button:hover {
+    background: #66ff66;
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0px #00cc00;
+}
+
+.yes-button:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px #00cc00;
+}
+
+.no-button {
+    background: #ff0000;
+    border-color: #cc0000;
+    box-shadow: 6px 6px 0px #cc0000;
+}
+
+.no-button:hover {
+    background: #ff6666;
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0px #cc0000;
+}
+
+.no-button:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px #cc0000;
+}
+
+.try-again-button {
+    background: #ff69b4;
+    border-color: #ff1493;
+    box-shadow: 6px 6px 0px #ff1493;
+    margin-top: 20px;
+    color: white;
+}
+
+.try-again-button:hover {
+    background: #ffb6d9;
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0px #ff1493;
+    color: white;
+}
+
+.try-again-button:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px #ff1493;
+    color: white;
+}
+
+.close-x-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff69b4;
+    color: white;
+    border: 3px solid #ff1493;
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1;
+    padding: 0;
+    box-shadow: 3px 3px 0px #ff1493;
+    transition: all 0.1s ease;
+}
+
+.close-x-button:hover {
+    background: #ff1493;
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px #ff1493;
+}
+
+.close-x-button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px 0px #ff1493;
+}
